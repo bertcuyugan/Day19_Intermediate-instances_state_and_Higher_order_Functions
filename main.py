@@ -1,49 +1,39 @@
 from turtle import Turtle, Screen
 
-tim = Turtle()
+
 screen = Screen()
+screen.setup(width=500, height=400)     # use Keyword_argument rather than Positional_argument, for other user to users to understand the values
+user_bet = screen.textinput(title="Make your bet", prompt="Which turtle will win the race? Enter a color: ")
+colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+y_position = [-80, -40, -0, 40, 80, 120]
 
-#W-move forward
-def move_forward():
-    tim.forward(10)
-#S-move backward
-def move_backward():
-    tim.backward(10)
-
-
-#A-counter-clockwise
-# def move_counter_clockwise():
-    # tim.circle(50)
-def turn_left():
-    new_heading = tim.heading() + 10
-    tim.setheading(new_heading)
-
-
-#D-clockwise
-#def move_clockwise():
-    # tim.circle(-50)
-def turn_right():
-    new_heading = tim.heading() - 10
-    tim.setheading(new_heading)
-
-
-#C-clear-drawings
-def clear():
-    tim.clear()
+for turtle_index in range(0, 6):
+    tim = Turtle(shape="turtle")
+    tim.color(colors[turtle_index])
     tim.penup()
-    tim.home()
-    tim.pendown()
+    tim.goto(x=-235, y=y_position[turtle_index])
 
-screen.listen()
-# screen.onkey(key="space", fun=move_forward)    # high order function
 
-screen.onkey(key="w", fun=move_forward)
-screen.onkey(key="s", fun=move_backward)
-# screen.onkey(key="a", fun=move_counter_clockwise)
-# screen.onkey(key="d", fun=move_clockwise)
-screen.onkey(key="a", fun=turn_left)
-screen.onkey(key="d", fun=turn_right)
-screen.onkey(key="c", fun=clear)
+# leo = Turtle(shape="turtle")
+# leo.penup()
+# leo.goto(x=-235, y=-60)
+#
+# rap = Turtle(shape="turtle")
+# rap.penup()
+# rap.goto(x=-235, y=-90)
+#
+# don = Turtle(shape="turtle")
+# don.penup()
+# don.goto(x=-235, y=90)
+#
+# splint = Turtle(shape="turtle")
+# splint.penup()
+# splint.goto(x=-235, y=60)
+#
+# hc = Turtle(shape="turtle")
+# hc.penup()
+# hc.goto(x=-235, y=30)
+
 
 screen.exitonclick()
 
